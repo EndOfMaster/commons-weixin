@@ -1,5 +1,6 @@
 package com.endofmaster.weixin.message.received;
 
+import com.endofmaster.commons.util.validate.ParamUtils;
 import com.endofmaster.weixin.WxException;
 import com.endofmaster.weixin.WxServerException;
 import com.endofmaster.weixin.log.WxMsgLog;
@@ -19,9 +20,6 @@ import com.endofmaster.weixin.message.received.msg.cardCoupons.UserConsumeCardEv
 import com.endofmaster.weixin.message.received.msg.cardCoupons.UserDelCardEvent;
 import com.endofmaster.weixin.message.received.msg.cardCoupons.UserGetCardEvent;
 import com.endofmaster.weixin.message.received.msg.cardCoupons.UserGiftingCardEvent;
-import com.jifenke.commons.util.validate.ParamUtils;
-import com.jifenke.weixin.message.received.msg.*;
-import com.jifenke.weixin.message.received.msg.cardCoupons.*;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.Validate;
 import org.dom4j.DocumentException;

@@ -11,4 +11,12 @@ public abstract class AbstractInnerWxCardInfo {
 
     @JsonProperty("advanced_info")
     protected WxCardAdvancedInfo advancedInfo;
+
+    public WxCardBaseInfo getBaseInfo() {
+        return baseInfo;
+    }
+
+    public WxCardAdvancedInfo getAdvancedInfo() {
+        return advancedInfo;
+    }
 }

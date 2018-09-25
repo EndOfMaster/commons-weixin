@@ -14,14 +14,13 @@ import com.endofmaster.weixin.support.WxCardUtils;
 import com.endofmaster.weixin.support.WxHttpClient;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
-import com.jifenke.weixin.cardCoupons.wxResponse.*;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Test;
 
 import java.io.*;
 import java.util.Map;
 
-import static com.jifenke.commons.util.validate.ParamUtils.findParam;
+import static com.endofmaster.commons.util.validate.ParamUtils.findParam;
 
 //@Ignore
 public class CardCouponsApiTest {

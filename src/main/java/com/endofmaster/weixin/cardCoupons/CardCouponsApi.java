@@ -12,8 +12,6 @@ import com.endofmaster.weixin.cardCoupons.request.CreateCardQrCodeRequest;
 import com.endofmaster.weixin.cardCoupons.request.CreateSubMerchantRequest;
 import com.endofmaster.weixin.cardCoupons.request.CreateWxCardRequest;
 import com.endofmaster.weixin.cardCoupons.request.CreateWxPoiRequest;
-import com.jifenke.weixin.cardCoupons.wxResponse.*;
-import com.jifenke.weixin.support.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -24,7 +22,7 @@ import java.net.URLDecoder;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.jifenke.commons.util.validate.ParamUtils.findParam;
+import static com.endofmaster.commons.util.validate.ParamUtils.findParam;
 import static com.endofmaster.weixin.support.WxHttpClient.MAPPER;
 
 /**

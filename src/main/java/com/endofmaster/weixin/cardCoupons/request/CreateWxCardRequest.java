@@ -7,13 +7,13 @@ import com.endofmaster.weixin.cardCoupons.basic.WxCardType;
 import com.endofmaster.weixin.cardCoupons.basic.WxCardTypeExtraConstant;
 import com.endofmaster.weixin.cardCoupons.basic.WxMerServiceType;
 import com.endofmaster.weixin.support.ParamsUtils;
-import com.jifenke.weixin.cardCoupons.*;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import static com.jifenke.commons.util.validate.ParamUtils.findParam;
+import static com.endofmaster.commons.util.validate.ParamUtils.findParam;
+
 
 /**
  * @author ZM.Wang

@@ -1,6 +1,6 @@
 package com.endofmaster.weixin.support;
 
-import com.jifenke.commons.util.sign.PresignUtils;
+import com.endofmaster.commons.util.sign.PresignUtils;
 import org.apache.commons.codec.digest.DigestUtils;
 
 import java.util.HashMap;

@@ -1,14 +1,14 @@
 package com.endofmaster.weixin.support;
 
+import com.endofmaster.commons.util.StreamUtils;
+import com.endofmaster.commons.util.p12cert.P12Cert;
+import com.endofmaster.commons.util.p12cert.P12CertUtils;
 import com.endofmaster.weixin.WxClientException;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.introspect.VisibilityChecker;
-import com.jifenke.commons.util.p12cert.P12Cert;
-import com.jifenke.commons.util.p12cert.P12CertUtils;
-import com.jifenke.commons.util.StreamUtils;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.config.RequestConfig;
