@@ -48,7 +48,7 @@ bintray {
     pkg {
         repo = 'maven'
         name = project.name
-        userOrg = 'jifenke'
+        userOrg = 'endofmaster'
         licenses = ['Apache-2.0']
         vcsUrl = "https://gitlab.com/endofmaster/${project.name}/"
         version {
