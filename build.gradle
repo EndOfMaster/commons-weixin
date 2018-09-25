@@ -8,10 +8,10 @@ buildscript {
     }
 }
 
-group 'com.jifenke.weixin'
+group 'com.endofmaster.weixin'
 description = 'Java SDK for weixin API'
 
-version '1.0.21'
+version '1.0.0'
 
 apply plugin: 'java'
 apply plugin: 'maven'
@@ -23,7 +23,7 @@ apply plugin: 'com.jfrog.bintray'
 repositories {
     maven { url 'http://maven.aliyun.com/nexus/content/groups/public' }
     jcenter()
-    maven { url 'https://dl.bintray.com/jifenke/maven' }
+    maven { url 'https://dl.bintray.com/endofmaster/maven' }
 }
 
 dependencies {
@@ -49,7 +49,7 @@ bintray {
         name = project.name
         userOrg = 'jifenke'
         licenses = ['Apache-2.0']
-        vcsUrl = "https://gitlab.com/jifenke/${project.name}/"
+        vcsUrl = "https://gitlab.com/endofmaster/${project.name}/"
         version {
             name = project.version
         }

@@ -1,0 +1,35 @@
+package com.endofmaster.weixin.message.send;
+
+
+import com.endofmaster.weixin.WxApi;
+import com.endofmaster.weixin.WxException;
+import com.endofmaster.weixin.support.WxHttpClient;
+import com.endofmaster.weixin.support.WxHttpRequest;
+import com.endofmaster.weixin.support.WxHttpResponse;
+
+/**
+ * @author YQ.Huang
+ */
+public class WxMessageApi extends WxApi {
+
+    public WxMessageApi(WxHttpClient client) {
+        super(client);
+    }
+
+    public WxSendMessageResponse sendTemplateMessage(WxTemplateMsg message, String accessToken) throws WxException {
+        WxHttpRequest request = new WxHttpRequest("https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=" + accessToken)
+                .setArg("touser", message.getOpenId())
+                .setArg("template_id", message.getTemplateId())
+                .setArg("url", message.getUrl())
+                .setArg("data", message.getData());
+        request.withMethod("post");
+        WxHttpResponse response = client.execute(request);
+        return response.parse(WxSendMessageResponse.class);
+    }
+
+    public void sendWxCard(String accessToken){
+        WxHttpRequest request=new WxHttpRequest("https://api.weixin.qq.com/cgi-bin/message/custom/send?access_token="+accessToken)
+                .withMethod("post");
+    }
+
+}
