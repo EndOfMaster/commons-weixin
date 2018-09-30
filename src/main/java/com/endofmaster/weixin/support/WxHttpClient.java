@@ -94,7 +94,6 @@ public class WxHttpClient {
     private HttpUriRequest buildHttpUriRequest(WxHttpRequest wxHttpRequest) throws WxClientException {
         RequestBuilder requestBuilder = RequestBuilder.create(wxHttpRequest.getMethod())
                 .setUri(wxHttpRequest.getUrl());
-
         for (String headerKey : wxHttpRequest.getHeaders().keySet()) {
             requestBuilder.addHeader(headerKey, wxHttpRequest.getHeaders().get(headerKey));
         }

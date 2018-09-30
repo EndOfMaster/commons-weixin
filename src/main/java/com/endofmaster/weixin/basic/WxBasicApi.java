@@ -79,6 +79,16 @@ public class WxBasicApi {
         return response.parse(WxIpList.class);
     }
 
+    public WxOauth2AccessToken getOpenIdBySmallProgram(String code, String appSecret) throws WxException {
+        WxHttpRequest request = new WxHttpRequest("https://api.weixin.qq.com/sns/jscode2session")
+                .setArg("appid", appId)
+                .setArg("secret", appSecret)
+                .setArg("js_code", code)
+                .setArg("grant_type", "authorization_code");
+        WxHttpResponse response = client.execute(request);
+        return response.parse(WxOauth2AccessToken.class);
+    }
+
     public String getAppId() {
         return appId;
     }
