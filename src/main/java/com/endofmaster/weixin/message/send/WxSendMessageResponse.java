@@ -12,7 +12,14 @@ public class WxSendMessageResponse extends WxResponse {
     @JsonProperty("msgid")
     private String msgId;
 
+    @JsonProperty("template_id")
+    private String templateId;
+
     public String getMsgId() {
         return msgId;
+    }
+
+    public String getTemplateId() {
+        return templateId;
     }
 }

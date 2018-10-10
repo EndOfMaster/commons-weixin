@@ -10,6 +10,7 @@ public class WxTemplateMsg {
     private String openId;
     private String templateId;
     private String url;
+    private String formId;
     private Map<String, DataItem> data;
 
     public WxTemplateMsg setOpenId(String openId) {
@@ -24,6 +25,15 @@ public class WxTemplateMsg {
 
     public WxTemplateMsg setUrl(String url) {
         this.url = url;
+        return this;
+    }
+
+    public String getFormId() {
+        return formId;
+    }
+
+    public WxTemplateMsg setFormId(String formId) {
+        this.formId = formId;
         return this;
     }
 
@@ -59,6 +69,10 @@ public class WxTemplateMsg {
     public static class DataItem {
         private final String value;
         private final String color;
+
+        public DataItem(String value) {
+            this(value, null);
+        }
 
         public DataItem(String value, String color) {
             this.value = value;

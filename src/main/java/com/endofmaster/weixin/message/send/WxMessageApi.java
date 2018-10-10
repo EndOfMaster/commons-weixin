@@ -16,19 +16,34 @@ public class WxMessageApi extends WxApi {
         super(client);
     }
 
+    /** 发送公众号模版消息 */
     public WxSendMessageResponse sendTemplateMessage(WxTemplateMsg message, String accessToken) throws WxException {
         WxHttpRequest request = new WxHttpRequest("https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=" + accessToken)
                 .setArg("touser", message.getOpenId())
                 .setArg("template_id", message.getTemplateId())
                 .setArg("url", message.getUrl())
+                .setArg("emphasis_keyword", message.getUrl())
                 .setArg("data", message.getData());
         request.withMethod("post");
         WxHttpResponse response = client.execute(request);
         return response.parse(WxSendMessageResponse.class);
     }
 
-    public void sendWxCard(String accessToken){
-        WxHttpRequest request=new WxHttpRequest("https://api.weixin.qq.com/cgi-bin/message/custom/send?access_token="+accessToken)
+    /** 发送小程序模版消息 */
+    public WxSendMessageResponse sendWxOpenTemplateMessage(WxTemplateMsg message, String accessToken) {
+        WxHttpRequest request=new WxHttpRequest("https://api.weixin.qq.com/cgi-bin/message/wxopen/template/send?access_token="+accessToken)
+                .setArg("touser", message.getOpenId())
+                .setArg("template_id", message.getTemplateId())
+                .setArg("page", message.getUrl())
+                .setArg("form_id", message.getFormId())
+                .setArg("data", message.getData());
+        request.withMethod("post");
+        WxHttpResponse response = client.execute(request);
+        return response.parse(WxSendMessageResponse.class);
+    }
+
+    public void sendWxCard(String accessToken) {
+        WxHttpRequest request = new WxHttpRequest("https://api.weixin.qq.com/cgi-bin/message/custom/send?access_token=" + accessToken)
                 .withMethod("post");
     }
 
