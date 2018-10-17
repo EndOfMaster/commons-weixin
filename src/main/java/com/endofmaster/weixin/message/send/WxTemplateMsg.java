@@ -42,6 +42,14 @@ public class WxTemplateMsg {
         return this;
     }
 
+    public WxTemplateMsg addDataItem(String name, String value) {
+        if (data == null) {
+            data = new HashMap<>();
+        }
+        data.put(name, new DataItem(value, null));
+        return this;
+    }
+
     public WxTemplateMsg addDataItem(String name, String value, String color) {
         if (data == null) {
             data = new HashMap<>();

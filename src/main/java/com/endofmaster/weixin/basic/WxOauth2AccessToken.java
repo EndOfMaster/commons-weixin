@@ -20,6 +20,9 @@ public class WxOauth2AccessToken extends WxResponse {
     @JsonProperty("openid")
     private String openId;
 
+    @JsonProperty("session_key")
+    private String sessionKey;
+
     @JsonProperty("scope")
     private String scope;
 
@@ -63,13 +66,19 @@ public class WxOauth2AccessToken extends WxResponse {
         this.scope = scope;
     }
 
+    public WxOauth2AccessToken setSessionKey(String sessionKey) {
+        this.sessionKey = sessionKey;
+        return this;
+    }
+
     @Override
     public String toString() {
-        return "WeixinOauth2AccessToken{" +
+        return "WxOauth2AccessToken{" +
                 "accessToken='" + accessToken + '\'' +
                 ", expiresIn=" + expiresIn +
                 ", refreshToken='" + refreshToken + '\'' +
                 ", openId='" + openId + '\'' +
+                ", sessionKey='" + sessionKey + '\'' +
                 ", scope='" + scope + '\'' +
                 '}';
     }
