@@ -71,6 +71,10 @@ public class WxOauth2AccessToken extends WxResponse {
         return this;
     }
 
+    public String getSessionKey() {
+        return sessionKey;
+    }
+
     @Override
     public String toString() {
         return "WxOauth2AccessToken{" +
