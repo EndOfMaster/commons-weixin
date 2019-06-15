@@ -20,8 +20,8 @@ public class WxOauth2AccessToken extends WxResponse {
     @JsonProperty("openid")
     private String openId;
 
-    @JsonProperty("session_key")
-    private String sessionKey;
+    @JsonProperty("unionid")
+    private String unionId;
 
     @JsonProperty("scope")
     private String scope;
@@ -66,24 +66,12 @@ public class WxOauth2AccessToken extends WxResponse {
         this.scope = scope;
     }
 
-    public WxOauth2AccessToken setSessionKey(String sessionKey) {
-        this.sessionKey = sessionKey;
+    public String getUnionId() {
+        return unionId;
+    }
+
+    public WxOauth2AccessToken setUnionId(String unionId) {
+        this.unionId = unionId;
         return this;
-    }
-
-    public String getSessionKey() {
-        return sessionKey;
-    }
-
-    @Override
-    public String toString() {
-        return "WxOauth2AccessToken{" +
-                "accessToken='" + accessToken + '\'' +
-                ", expiresIn=" + expiresIn +
-                ", refreshToken='" + refreshToken + '\'' +
-                ", openId='" + openId + '\'' +
-                ", sessionKey='" + sessionKey + '\'' +
-                ", scope='" + scope + '\'' +
-                '}';
     }
 }
