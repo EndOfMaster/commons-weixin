@@ -32,7 +32,7 @@ public class WxBasicApi {
     }
 
     public String getLoginAuthorizeUrl(String redirectUrl, String state) throws UnsupportedEncodingException {
-        return WxUtils.getAuthorizeUrl(appId, redirectUrl, "snsapi_login", state);
+        return WxUtils.getOpenAuthorizeUrl(appId, redirectUrl, state);
     }
 
     public WxAccessToken getAccessToken() throws WxException {

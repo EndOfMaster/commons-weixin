@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import static com.endofmaster.weixin.Constant.CHARSET;
+
 /**
  * @author YQ.Huang
  */
@@ -18,10 +20,20 @@ public abstract class WxUtils {
     public static String getAuthorizeUrl(String appId, String redirectUrl, String scope, String state) throws UnsupportedEncodingException {
         return "https://open.weixin.qq.com/connect/oauth2/authorize?" +
                 "appid=" + appId + "&" +
-                "redirect_uri=" + URLEncoder.encode(redirectUrl, "UTF-8") + "&" +
+                "redirect_uri=" + URLEncoder.encode(redirectUrl, CHARSET) + "&" +
                 "response_type=code" + "&" +
                 "scope=" + scope + "&" +
-                "state=" + URLEncoder.encode(state, "UTF-8") +
+                "state=" + URLEncoder.encode(state, CHARSET) +
+                "#wechat_redirect";
+    }
+
+    public static String getOpenAuthorizeUrl(String appId, String redirectUrl, String state) throws UnsupportedEncodingException {
+        return "https://open.weixin.qq.com/connect/qrconnect?" +
+                "appid=" + appId + "&" +
+                "redirect_uri=" + URLEncoder.encode(redirectUrl, CHARSET) + "&" +
+                "response_type=code" + "&" +
+                "scope=snsapi_login" + "&" +
+                "state=" + URLEncoder.encode(state, CHARSET) +
                 "#wechat_redirect";
     }
 
