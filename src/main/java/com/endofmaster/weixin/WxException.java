@@ -12,4 +12,8 @@ public abstract class WxException extends RuntimeException {
     public WxException(String message, Throwable cause) {
         super(message, cause);
     }
+
+    public WxException(Throwable cause) {
+        super(cause);
+    }
 }

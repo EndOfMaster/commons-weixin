@@ -1,7 +1,7 @@
 buildscript {
     repositories {
-        maven { url 'http://maven.aliyun.com/nexus/content/groups/public' }
         jcenter()
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public' }
     }
     dependencies {
         classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
@@ -22,14 +22,16 @@ apply plugin: 'com.jfrog.bintray'
 
 repositories {
     mavenLocal()
-    maven { url 'http://maven.aliyun.com/nexus/content/groups/public' }
     jcenter()
+    maven { url 'http://maven.aliyun.com/nexus/content/groups/public' }
     maven { url 'https://dl.bintray.com/endofmaster/maven' }
+    mavenCentral()
 }
 
 dependencies {
     compile 'org.apache.httpcomponents:httpclient:4.5.3'
     compile 'org.apache.httpcomponents:httpmime:4.5.3'
+    compile 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.9.9'
 
     compile 'com.endofmaster:commons-utils:1.0.2'
 

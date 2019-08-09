@@ -12,4 +12,8 @@ public class WxClientException extends WxException {
     public WxClientException(String message, Throwable cause) {
         super(message, cause);
     }
+
+    public WxClientException(Throwable cause) {
+        super(cause);
+    }
 }
