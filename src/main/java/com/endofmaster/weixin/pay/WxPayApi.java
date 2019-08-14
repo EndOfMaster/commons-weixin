@@ -35,7 +35,7 @@ public class WxPayApi {
     private final String mchId; //商户ID
     private final HttpClient httpClient;
 
-    protected WxPayApi(String key, String appId, String mchId) {
+    public WxPayApi(String key, String appId, String mchId) {
         this.key = key;
         this.appId = appId;
         this.mchId = mchId;
