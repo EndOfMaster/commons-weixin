@@ -29,11 +29,11 @@ public class WxPayNativeChargeRequest extends WxPayRequest<WxPayNativeChargeResp
     @Override
     Map<String, String> buildRequestParams() {
         Map<String, String> params = new HashMap<>();
-        params.put("outTradeNo", outTradeNo);
+        params.put("out_trade_no", outTradeNo);
         params.put("body", body);
-        params.put("totalFee", totalFee);
-        params.put("notifyUrl", notifyUrl);
-        params.put("productId", productId);
+        params.put("total_fee", totalFee);
+        params.put("notify_url", notifyUrl);
+        params.put("product_id", productId);
         params.put("spbill_create_ip", ip);
         params.put("trade_type", "NATIVE");
         return params;
