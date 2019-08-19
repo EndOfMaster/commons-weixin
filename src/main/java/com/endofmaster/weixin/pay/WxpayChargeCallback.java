@@ -25,7 +25,7 @@ public class WxpayChargeCallback extends WxpayCallback {
     private void validateTotalFee(long amount) {
         String param = "total_fee";
         String actual = findParam(params, param);
-        if (!StringUtils.equals(param, actual))
+        if (!StringUtils.equals(amount + "", actual))
             throw new InvalidParamException(param, amount, actual);
     }
 

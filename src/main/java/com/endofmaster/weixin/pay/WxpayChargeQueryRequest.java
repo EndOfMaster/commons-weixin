@@ -1,6 +1,7 @@
 package com.endofmaster.weixin.pay;
 
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.Map;
 
 import static com.endofmaster.weixin.Constant.ORDER_QUERY_URL;
@@ -20,7 +21,6 @@ public class WxpayChargeQueryRequest extends WxPayRequest<WxpayChargeQueryRespon
         this.outTradeNo = outTradeNo;
     }
 
-
     @Override
     protected String getUrl() {
         return ORDER_QUERY_URL;
@@ -33,7 +33,7 @@ public class WxpayChargeQueryRequest extends WxPayRequest<WxpayChargeQueryRespon
 
     @Override
     protected Map<String, String> buildRequestParams() {
-        return Collections.singletonMap("out_trade_no", outTradeNo);
+        return new HashMap<>(Collections.singletonMap("out_trade_no", outTradeNo));
     }
 
 }
