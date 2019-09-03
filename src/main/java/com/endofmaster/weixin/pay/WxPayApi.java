@@ -52,7 +52,7 @@ public class WxPayApi {
             sign(params);
             String requestXml = buildXml(params, "xml");
             HttpPost httpPost = new HttpPost(request.getUrl());
-            StringEntity requestEntity = new StringEntity(requestXml, Constant.CONTENT_TYPE);
+            StringEntity requestEntity = new StringEntity(requestXml, Constant.XML_CONTENT_TYPE);
             httpPost.setEntity(requestEntity);
             HttpResponse response = httpClient.execute(httpPost);
             String responseXml = StreamUtils.copyToString(response.getEntity().getContent(), CHARSET_OBJ);

@@ -9,9 +9,9 @@ import java.util.Map;
  */
 public class WxMsgLog {
 
-    private final String id;
-    private final Date date;
-    private final Map<String, String> value;
+    private String id;
+    private Date date;
+    private Map<String, String> value;
 
 
     public WxMsgLog(Map<String, String> value) {
