@@ -26,6 +26,9 @@ public class WxOauth2AccessToken extends WxResponse {
     @JsonProperty("scope")
     private String scope;
 
+    @JsonProperty("session_key")
+    private String sessionKey;
+
     public String getAccessToken() {
         return accessToken;
     }
@@ -72,6 +75,15 @@ public class WxOauth2AccessToken extends WxResponse {
 
     public WxOauth2AccessToken setUnionId(String unionId) {
         this.unionId = unionId;
+        return this;
+    }
+
+    public String getSessionKey() {
+        return sessionKey;
+    }
+
+    public WxOauth2AccessToken setSessionKey(String sessionKey) {
+        this.sessionKey = sessionKey;
         return this;
     }
 }

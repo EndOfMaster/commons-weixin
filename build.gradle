@@ -8,7 +8,7 @@ buildscript {
     }
 }
 
-group 'com.endofmaster.weixin'
+group 'com.endofmaster'
 description = 'Java SDK for weixin API'
 
 version '1.0.0'

@@ -6,6 +6,7 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.dom4j.DocumentException;
 import org.junit.Test;
 
+import java.io.InputStream;
 import java.security.SignatureException;
 import java.util.Map;
 
@@ -21,7 +22,8 @@ public class WxPayApiTest {
     private final WxPayApi wxPayApi;
 
     public WxPayApiTest() {
-        this.wxPayApi = new WxPayApi("*******", "wx94581d0e2c01d1b0", "1550785821");
+        InputStream key=this.getClass().getResourceAsStream("/wx-server.p12");
+        this.wxPayApi = new WxPayApi("*****", "wx94581d0e2c01d1b0", "1550785821",key,"*****");
     }
 
     @Test
@@ -62,5 +64,12 @@ public class WxPayApiTest {
         String sign = Md5SignUtils.sign(preSignString, "&key=" + key, CHARSET).toUpperCase();
         System.err.println(actual);
         System.err.println(sign);
+    }
+
+    @Test
+    public void merchantPayTest(){
+        WxMerchantPayRequest request=new WxMerchantPayRequest(RandomStringUtils.randomAlphanumeric(32),
+                "o7h9S1i9nzmduKEYDdwTA69m9SKw","100","测试提现","114.243.85.235");
+        WxMerchantPayResponse execute = wxPayApi.execute(request);
     }
 }
