@@ -1,5 +1,6 @@
 package com.endofmaster.weixin.support;
 
+import com.endofmaster.commons.util.StreamUtils;
 import com.endofmaster.weixin.WxClientException;
 import com.endofmaster.weixin.WxException;
 import com.endofmaster.weixin.WxServerException;
@@ -8,6 +9,7 @@ import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.charset.Charset;
 
 /**
  * @author YQ.Huang
@@ -28,7 +30,9 @@ public class WxHttpResponse {
     public <T extends WxResponse> T parse(Class<T> tClass) throws WxException {
         try {
             if (statusCode >= 200 && statusCode < 300) {
-                T result = WxHttpClient.MAPPER.readValue(body, tClass);
+                String resultStr = StreamUtils.copyToString(body, Charset.forName("UTF-8"));
+                LOGGER.debug("微信请求返回结果：" + resultStr);
+                T result = WxHttpClient.MAPPER.readValue(resultStr, tClass);
                 if (!result.successful()) {
                     LOGGER.error("微信错误码：" + result.getErrCode() + ",错误内容：" + result.getErrMsg());
                     throw new WxServerException(result.getErrMsg());
