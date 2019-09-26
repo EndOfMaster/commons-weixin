@@ -23,7 +23,7 @@ public class WxPayApiTest {
 
     public WxPayApiTest() {
         InputStream key=this.getClass().getResourceAsStream("/wx-server.p12");
-        this.wxPayApi = new WxPayApi("*****", "wx94581d0e2c01d1b0", "1550785821",key,"*****");
+        this.wxPayApi = new WxPayApi("", "wx94581d0e2c01d1b0", "1550785821",key,"");
     }
 
     @Test
@@ -71,5 +71,12 @@ public class WxPayApiTest {
         WxMerchantPayRequest request=new WxMerchantPayRequest(RandomStringUtils.randomAlphanumeric(32),
                 "o7h9S1i9nzmduKEYDdwTA69m9SKw","100","测试提现","114.243.85.235");
         WxMerchantPayResponse execute = wxPayApi.execute(request);
+    }
+
+    @Test
+    public void jsapiPayTest(){
+        WxpayJsapiChargeRequest request=new WxpayJsapiChargeRequest("测试",RandomStringUtils.randomAlphanumeric(32),1,
+                "http://127.0.0.1","o7h9S1i9nzmduKEYDdwTA69m9SKw","114.243.85.235");
+        WxpayJsapiChargeResponse execute = wxPayApi.execute(request);
     }
 }
