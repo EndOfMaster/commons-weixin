@@ -5,6 +5,8 @@ import com.endofmaster.commons.util.sign.PresignUtils;
 import com.endofmaster.weixin.WxServerException;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.security.SignatureException;
 import java.util.HashMap;
@@ -18,6 +20,8 @@ import static com.endofmaster.weixin.Constant.CHARSET;
  * @update ZM.Wang
  */
 public class WxpayJsapiChargeResponse extends WxPayResponse {
+
+    private final static Logger logger = LoggerFactory.getLogger(WxpayJsapiChargeResponse.class);
 
     @JacksonXmlProperty(localName = "prepay_id")
     private String prepayId;
@@ -40,10 +44,12 @@ public class WxpayJsapiChargeResponse extends WxPayResponse {
             throw new WxServerException(e);
         }
         credentials.put("paySign", sign);
+        logger.debug("微信公众号支付二次签名最终参数：" + credentials);
         return credentials;
     }
 
     public String getPrepayId() {
         return prepayId;
     }
+
 }

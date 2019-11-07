@@ -78,6 +78,7 @@ public class WxPayApi {
             params.put("nonce_str", RandomStringUtils.randomAlphanumeric(32));
             sign(params);
             String requestXml = buildXml(params, "xml");
+            logger.debug("微信请求xml：" + requestXml);
             HttpPost httpPost = new HttpPost(request.getUrl());
             StringEntity requestEntity = new StringEntity(requestXml, Constant.XML_CONTENT_TYPE);
             httpPost.setEntity(requestEntity);
