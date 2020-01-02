@@ -31,11 +31,23 @@ public class WxMessageApi extends WxApi {
 
     /** 发送小程序模版消息 */
     public WxSendMessageResponse sendWxOpenTemplateMessage(WxTemplateMsg message, String accessToken) {
-        WxHttpRequest request=new WxHttpRequest("https://api.weixin.qq.com/cgi-bin/message/wxopen/template/send?access_token="+accessToken)
+        WxHttpRequest request = new WxHttpRequest("https://api.weixin.qq.com/cgi-bin/message/wxopen/template/send?access_token=" + accessToken)
                 .setArg("touser", message.getOpenId())
                 .setArg("template_id", message.getTemplateId())
                 .setArg("page", message.getUrl())
                 .setArg("form_id", message.getFormId())
+                .setArg("data", message.getData());
+        request.withMethod("post");
+        WxHttpResponse response = client.execute(request);
+        return response.parse(WxSendMessageResponse.class);
+    }
+
+    /** 发送小程序订阅消息 */
+    public WxSendMessageResponse sendWxSubscribeMessage(WxTemplateMsg message, String accessToken) {
+        WxHttpRequest request = new WxHttpRequest("https://api.weixin.qq.com/cgi-bin/message/subscribe/send?access_token=" + accessToken)
+                .setArg("touser", message.getOpenId())
+                .setArg("template_id", message.getTemplateId())
+                .setArg("page", message.getUrl())
                 .setArg("data", message.getData());
         request.withMethod("post");
         WxHttpResponse response = client.execute(request);
