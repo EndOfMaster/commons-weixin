@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 
 /**
  * @author YQ.Huang
@@ -18,7 +19,7 @@ public class WxHttpResponse {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(WxHttpResponse.class);
 
-    private int statusCode;
+    private final int statusCode;
     private String reasonPhrase;
     private String contentType;
     private InputStream body;
@@ -30,7 +31,7 @@ public class WxHttpResponse {
     public <T extends WxResponse> T parse(Class<T> tClass) throws WxException {
         try {
             if (statusCode >= 200 && statusCode < 300) {
-                String resultStr = StreamUtils.copyToString(body, Charset.forName("UTF-8"));
+                String resultStr = StreamUtils.copyToString(body, StandardCharsets.UTF_8);
                 LOGGER.debug("微信请求返回结果：" + resultStr);
                 T result = WxHttpClient.MAPPER.readValue(resultStr, tClass);
                 if (!result.successful()) {
