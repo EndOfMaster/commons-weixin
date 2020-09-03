@@ -19,7 +19,7 @@ import java.security.spec.AlgorithmParameterSpec;
  */
 public class WxDecryptionUtils {
 
-    private String decryption(String encryptData, String iv, String sessionKey) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException {
+    public static String decryption(String encryptData, String iv, String sessionKey) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException {
         // 解密
         byte[] encryptDataByte = Base64.decodeBase64(encryptData);
         byte[] sessionKeyByte = Base64.decodeBase64(sessionKey);
@@ -29,4 +29,5 @@ public class WxDecryptionUtils {
         cipher.init(Cipher.DECRYPT_MODE, keySpec, ivSpec);
         return new String(cipher.doFinal(encryptDataByte), StandardCharsets.UTF_8);
     }
+
 }
