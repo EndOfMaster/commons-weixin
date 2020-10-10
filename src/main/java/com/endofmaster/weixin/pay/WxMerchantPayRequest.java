@@ -10,11 +10,11 @@ public class WxMerchantPayRequest extends WxPayRequest<WxMerchantPayResponse> {
 
     private final String chargeId;
     private final String openId;
-    private final String amount;
+    private final long amount;
     private final String desc;
     private final String ip;
 
-    public WxMerchantPayRequest(String chargeId, String openId, String amount, String desc, String ip) {
+    public WxMerchantPayRequest(String chargeId, String openId, long amount, String desc, String ip) {
         this.chargeId = chargeId;
         this.openId = openId;
         this.amount = amount;
@@ -28,7 +28,7 @@ public class WxMerchantPayRequest extends WxPayRequest<WxMerchantPayResponse> {
         params.put("partner_trade_no", chargeId);
         params.put("openid", openId);
         params.put("check_name", "NO_CHECK");
-        params.put("amount", amount);
+        params.put("amount", amount + "");
         params.put("desc", desc);
         params.put("spbill_create_ip", ip);
         return params;
