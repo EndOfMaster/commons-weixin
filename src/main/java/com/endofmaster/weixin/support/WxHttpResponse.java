@@ -36,7 +36,12 @@ public class WxHttpResponse {
                 T result = WxHttpClient.MAPPER.readValue(resultStr, tClass);
                 if (!result.successful()) {
                     LOGGER.error("微信错误码：" + result.getErrCode() + ",错误内容：" + result.getErrMsg());
-                    throw new WxServerException(result.getErrMsg());
+                    if (result.getErrCode() != 43101) {
+                        throw new WxServerException(result.getErrMsg());
+                    } else {
+                        LOGGER.warn("用户未订阅该消息");
+                        return result;
+                    }
                 }
                 return result;
             } else {
