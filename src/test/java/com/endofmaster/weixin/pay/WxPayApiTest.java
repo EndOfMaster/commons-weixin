@@ -4,7 +4,7 @@ import com.endofmaster.commons.util.sign.Md5SignUtils;
 import com.endofmaster.commons.util.sign.PresignUtils;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.dom4j.DocumentException;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.InputStream;
 import java.security.SignatureException;

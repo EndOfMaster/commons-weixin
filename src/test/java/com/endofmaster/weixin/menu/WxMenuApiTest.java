@@ -1,7 +1,7 @@
 package com.endofmaster.weixin.menu;
 
 import com.endofmaster.weixin.support.WxHttpClient;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * @author ZM.Wang

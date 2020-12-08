@@ -9,15 +9,15 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicHeader;
 import org.apache.http.protocol.HTTP;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
-public class HttpRquestTest {
+public class HttpRequestTest {
 
     @Test
     public void setAliLogLevel() {
-        String url = "http://101.201.39.79:18081/loggers/com.jifenke";
+        String url = "http://101.201.39.79:18081/loggers/com";
         String configuredLevel = "info";
         try {
             HttpClient httpClient = HttpClients.custom().build();

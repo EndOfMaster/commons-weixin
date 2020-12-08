@@ -1,7 +1,8 @@
 package com.endofmaster.weixin;
 
-import org.junit.Assert;
-import org.junit.Test;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 /**
  * @author ZM.Wang
@@ -10,7 +11,7 @@ public class EqualsTest {
 
     @Test
     public void test() {
-        Assert.assertTrue("json".equalsIgnoreCase("JSON"));
+        Assertions.assertTrue("json".equalsIgnoreCase("JSON"));
     }
 
 //    @Test

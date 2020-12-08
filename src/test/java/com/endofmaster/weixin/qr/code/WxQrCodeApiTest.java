@@ -1,6 +1,7 @@
 package com.endofmaster.weixin.qr.code;
 
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
 
 public class WxQrCodeApiTest {
 

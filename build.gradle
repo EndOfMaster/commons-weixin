@@ -11,8 +11,8 @@ plugins {
     id "com.jfrog.bintray" version "1.8.5"
 }
 
-version = '1.0.1'
-sourceCompatibility = '1.8'
+version = '1.0.2'
+sourceCompatibility = '11'
 group = 'com.endofmaster'
 description = 'Java SDK for weixin API'
 
@@ -21,19 +21,18 @@ description = 'Java SDK for weixin API'
 repositories {
     maven { url 'https://maven.aliyun.com/repository/central' }
     mavenLocal()
-    jcenter()
     maven { url "https://dl.bintray.com/endofmaster/maven" }
 }
 
 dependencies {
-    implementation 'org.apache.httpcomponents:httpclient:4.5.12'
-    implementation 'org.apache.httpcomponents:httpmime:4.5.12'
-    implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.11.2'
+    implementation 'org.apache.httpcomponents:httpclient:4.5.13'
+    implementation 'org.apache.httpcomponents:httpmime:4.5.13'
+    implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.12.0'
 
-    implementation 'com.endofmaster:commons-utils:1.0.4'
+    implementation 'com.endofmaster:commons-utils:1.0.6'
 
-    testRuntime 'org.slf4j:slf4j-simple:1.7.30'
-    testCompile 'junit:junit:4.13'
+    testCompileOnly 'org.slf4j:slf4j-jdk14:1.7.30'
+    testCompileOnly 'org.junit.jupiter:junit-jupiter:5.7.0'
 }
 
 bintray {
